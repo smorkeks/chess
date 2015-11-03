@@ -30,8 +30,8 @@ namespace Chess.src
         {
             this.xCoord = x;
             this.yCoord = y;
-            if (hasMoved)
-                hasMoved = false;
+            if (!hasMoved)
+                hasMoved = true;
         }
 
         //returns a list of all possible moves
