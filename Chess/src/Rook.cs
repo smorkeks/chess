@@ -135,6 +135,7 @@ namespace Chess.src
 
             // Done, all moves found
             return moves;
-        }
+        }
+
     }
 }
