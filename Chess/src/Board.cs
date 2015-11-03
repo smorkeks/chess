@@ -49,7 +49,7 @@ namespace Chess.src
 
 
             // Add cover
-            QueryFunc qf = getPieceAt;
+            QueryFunc qf = getSquareAt;
             foreach (Square s in squares)
             {
                 Piece p = s.getPiece();
@@ -59,7 +59,7 @@ namespace Chess.src
                     List<Tuple<uint, uint>> cover = p.getPossibleMoves(qf);
                     foreach (Tuple<uint, uint> t in cover)
                     {
-                        if (p.getColor() == "white")
+                        if (p.getColour() == "white")
                         {
                             squares[t.Item1, t.Item2].addWhiteCover();
                         }
@@ -75,15 +75,15 @@ namespace Chess.src
 
 
         // --- Methods ---
-        public Square getPieceAt(uint x, uint y)
+        public Square getSquareAt(uint x, uint y)
         {
             // Check if outside board
             if (x >= BOARD_SIZE_X || y >= BOARD_SIZE_Y){
                 return null;
             }
 
-            // Get piece or null
-            return squares[x, y].getPiece();
+            // Get square or null
+            return squares[x, y];
         }
     }
 }
