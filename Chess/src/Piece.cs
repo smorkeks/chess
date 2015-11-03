@@ -44,9 +44,19 @@ namespace Chess.src
 
         // Used to determine if the piece has moved from initial position.
         // Nessecary for En Passant and Castling
-        bool movedFromInit()
+        public bool movedFromInit()
         {
             return hasMoved;
+        }
+
+        public uint getX()
+        {   
+            return xCoord;
+        }
+ 
+        public uint getY()
+        {
+            return yCoord;
         }
     }
 }
