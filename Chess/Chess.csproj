@@ -72,6 +72,8 @@
     <Compile Include="src\Pawn.cs" />
     <Compile Include="src\Piece.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\Rook.cs" />
+    <Compile Include="src\Square.cs" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
