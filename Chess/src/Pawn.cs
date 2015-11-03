@@ -20,6 +20,7 @@ namespace Chess.src
             else
                 yMod = -1;
 
+            // Take left
             if (withinBoard((int)getX() - 1, (int)getY() + yMod))
             {
                 Square S = QF((uint)(getX() - 1), (uint)(getY() + yMod));
@@ -33,6 +34,7 @@ namespace Chess.src
                 }
             }
 
+            //Take right
             if (withinBoard((int)getX() + 1, (int)getY() + yMod))
             {
                 Square S = QF((uint)(getX() + 1), (uint)(getY() + yMod));
@@ -46,6 +48,7 @@ namespace Chess.src
                 }
             }
 
+            //Move 1 
             if (withinBoard((int)getX(), (int)getY() + yMod))
             {
                 Square S = QF(getX(), (uint)(getY() + yMod));
@@ -56,6 +59,7 @@ namespace Chess.src
                 }
             }
 
+            //Move 2 (Only first move)
             if (!movedFromInit())
             {
                 if (withinBoard((int)getX(), (int)getY() + 2 * yMod))
