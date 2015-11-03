@@ -16,6 +16,16 @@ namespace Chess.src
 
 
         // methods
+        public Piece(uint x, uint y, uint val, string col)
+        {
+            this.xCoord = x;
+            this.yCoord = y;
+            this.score = val;
+            this.colour = col;
+            this.hasMoved = false;
+        }
+
+
         public void move(uint x, uint y)
         {
             this.xCoord = x;
