@@ -8,11 +8,11 @@ namespace Chess.src
     public abstract class Piece
     {
         // fields
-        private uint xCoord;
-        private uint yCoord;
-        private uint score;         //Value of the piece
-        private bool hasMoved;      //Determines if the piece has moved from initial pos
-        private string colour;      //White or black
+        protected uint xCoord;
+        protected uint yCoord;
+        protected uint score;         //Value of the piece
+        protected bool hasMoved;      //Determines if the piece has moved from initial pos
+        protected string colour;      //White or black
 
 
         // methods
@@ -57,6 +57,29 @@ namespace Chess.src
         public bool movedFromInit()
         {
             return hasMoved;
+        }
+
+        //Checks if square is inside the bounds of the board
+        public bool withinBoard(int x, int y)
+        {
+            if ((x <= 7) & (x >= 0) & (y <= 7) & (y >= 0))
+                return true;
+            else
+                return false;
+        }
+
+        //checks if same colour
+        public bool isSameColour(Piece P)
+        {
+            if (P.getColour() == this.colour)
+                return true;
+            else
+                return false;
+        }
+
+        public string getColour()
+        {
+            return this.colour;
         }
 
         public uint getX()
