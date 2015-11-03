@@ -27,8 +27,8 @@ namespace Chess.src
                                              { 0, 1, 1, 1, 1, 1, 1, 0 },
                                              { 0, 0, 0, 0, 0, 0, 0, 0 } };
 
-        // Passed to piece to limit access to board.
-        public static delegate Piece QueryFunc(uint x, uint y);
+        // Passed to Pieces to limit access to board.
+        public static delegate Square QueryFunc(uint x, uint y);
 
         // --- Constructor ---
         public Board()
@@ -44,7 +44,9 @@ namespace Chess.src
 
             // Create white pieces
 
+
             // Create black pieces
+
 
             // Add cover
             QueryFunc qf = getPieceAt;
@@ -73,7 +75,7 @@ namespace Chess.src
 
 
         // --- Methods ---
-        public Piece getPieceAt(uint x, uint y)
+        public Square getPieceAt(uint x, uint y)
         {
             // Check if outside board
             if (x >= BOARD_SIZE_X || y >= BOARD_SIZE_Y){
