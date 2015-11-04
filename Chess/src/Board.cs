@@ -257,5 +257,17 @@ namespace Chess.src
 
             return true;
         }
+
+        // TODO
+        public bool blackLost()
+        {
+            return false;
+        }
+
+        //TODO
+        public bool whiteLost()
+        {
+            return false;
+        }
     }
 }
