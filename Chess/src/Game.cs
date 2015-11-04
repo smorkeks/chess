@@ -35,14 +35,14 @@ namespace Chess.src
             
             if (p1 == "TA")
             {
-                white = new TerminalAgent("white");
-            }
+                    white = new TerminalAgent("white");
+                }
             put(p1);
                 
-                
+
             if (p2 == "TA")
-            {
-                black = new TerminalAgent("black");
+                {
+                    black = new TerminalAgent("black");
             }
             put(p2);
             printBoard();
@@ -84,8 +84,8 @@ namespace Chess.src
                             tmp = tmp + "k  ";
                         else
                             tmp = tmp + "ERORR ERROR ERROR";
-                    
-                    } 
+
+                    }
                 }
                 put(tmp);
             }
