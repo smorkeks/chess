@@ -18,22 +18,20 @@ namespace Chess.src
 
         // Terminal deligates
         public delegate void putString(string s);
-        //public delegate string readString();
-
         putString put;
-        //readString read;
+
 
         //Methods
-        public Game(putString put)//, readString read)
+        public Game(putString put)
         {
             this.put = put;
-            //this.read = read;
         }
 
         public void start(string p1, string p2)
         {
             turnWhite = true;
             board = new Board();
+            newInput = "";
 
 
             if (p1 == "TA")
@@ -49,7 +47,7 @@ namespace Chess.src
             }
             put(p2);
             printBoard();
-            //run();
+            run();
 
         }
 
@@ -94,16 +92,16 @@ namespace Chess.src
             }
         }
 
-        void run()
+        public void run()
         {
             Tuple<uint, uint, uint, uint> tmp;
-            while (true)
+
+            if (turnWhite)
             {
-                while (turnWhite)
+                if (white is TerminalAgent) // TODO not AI instead
                 {
-                    if (white is TerminalAgent) // TODO not AI instead
+                    if (newInput != "")
                     {
-                        while (newInput == "") { }
                         tmp = white.getInput(board, newInput);
                         turnWhite = !board.makeMove("white", tmp.Item1, tmp.Item2, tmp.Item3, tmp.Item4);
                         if (board.blackLost())
@@ -115,12 +113,14 @@ namespace Chess.src
                         newInput = "";
                     }
                 }
+            }
 
-                while (!turnWhite)
+            else if (!turnWhite)
+            {
+                if (black is TerminalAgent) // TODO not AI instead
                 {
-                    if (white is TerminalAgent) // TODO not AI instead
+                    if (newInput != "")
                     {
-                        while (newInput == "") { }
                         tmp = black.getInput(board, newInput);
                         turnWhite = board.makeMove("black", tmp.Item1, tmp.Item2, tmp.Item3, tmp.Item4);
                         if (board.whiteLost())
@@ -133,6 +133,7 @@ namespace Chess.src
                     }
                 }
             }
+
         }
 
         public void setNewPlayerInput(string input)
