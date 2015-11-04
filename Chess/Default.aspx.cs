@@ -9,19 +9,38 @@ namespace Chess
 {
     public partial class Default : System.Web.UI.Page
     {
-        src.Game game;
+        private src.Game game;
+        private string unreadInput = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
             HelloWorldLabel.Text = "Hello, world! How about a game of chess?";
-            game = new src.Game();
         }
 
         protected void TerminalButton_Click(object sender, EventArgs e)
         {
             TerminalOutput.Text += TerminalInput.Text + "\n";
+            unreadInput = TerminalInput.Text;
             TerminalInput.Text = "";
+        }
 
+        protected void StartButton_Click(object sender, EventArgs e)
+        {
+            game = new src.Game(putString, readString);
+
+        }
+
+        private void putString(string s)
+        {
+            TerminalOutput.Text += s + "\n";
+        }
+
+        private string readString()
+        {
+            while(unreadInput == ""){}
+            string tmp = unreadInput;
+            unreadInput = "";
+            return tmp;
         }
     }
 }

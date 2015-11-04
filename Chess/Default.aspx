@@ -18,7 +18,8 @@
         <asp:TextBox runat="server" id="TerminalInput" Height="23px" Width="633px" style="margin-top: 15px" /> 
         <br />
         <asp:Button runat="server" id="GreetButton" text="Enter command" OnClick="TerminalButton_Click" Width="140px" />
-    
+        <br />
+        <asp:Button runat="server" id="StartButton" text="Start game" OnClick="StartButton_Click" Width="140px" />
     </div>
     </form>
 </body>

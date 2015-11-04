@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace Chess.src
 {
@@ -12,15 +14,19 @@ namespace Chess.src
         Agent white;
         Agent black;
 
+        // Terminal deligates
+        public delegate void putString(string s);
+        public delegate string readString();
+
         //Methods
-        public Game()
+        public Game(putString put, readString read)
         {
             board = new Board();
             bool doneWhite = false;
             while (!doneWhite)
             {
-                Console.WriteLine("Enter type for white player (Only TA so far):");
-                string tmp = Console.ReadLine();
+                put("Enter type for white player (Only TA so far):");
+                string tmp = "TB";//read(); // Console.ReadLine();
                 if (tmp == "TA")
                 {
                     white = new TerminalAgent("white");
@@ -28,27 +34,27 @@ namespace Chess.src
                 }
                 else
                 {
-                    Console.WriteLine("Please enter a correct value");
+                    put("Please enter a correct value");
                 }
             }
 
             bool doneBlack = false;
             while (!doneBlack)
             {
-                Console.WriteLine("Enter type for black player (Only TA so far):");
-                string tmp = Console.ReadLine();
+                put("Enter type for black player (Only TA so far):");
+                string tmp = "TA";//read(); //Console.ReadLine();
                 if (tmp == "TA")
                 {
-                    white = new TerminalAgent("black");
+                    black = new TerminalAgent("black");
                     doneBlack = true;
                 }
                 else
                 {
-                    Console.WriteLine("Please enter a correct value");
+                    put("Please enter a correct value");
                 }
             }
 
-            run();
+            //run();
 
         }
 
