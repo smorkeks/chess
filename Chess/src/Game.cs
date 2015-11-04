@@ -54,8 +54,28 @@ namespace Chess.src
 
         void run()
         {
-            Console.WriteLine("White players turn!");
-            Tuple<uint, uint, uint, uint> tmp = white.getInput(board);
+            Tuple<uint, uint, uint, uint> tmp;
+            while (true)
+            {
+
+                Console.WriteLine("White players turn!");
+                tmp = white.getInput(board);
+                board.makeMove("white", tmp.Item1, tmp.Item2, tmp.Item3, tmp.Item4);
+                if (board.blackLost())
+                {
+                    Console.WriteLine("White player won!");
+                    return;
+                }
+
+                Console.WriteLine("Black players turn!");
+                tmp = white.getInput(board);
+                board.makeMove("black", tmp.Item1, tmp.Item2, tmp.Item3, tmp.Item4);
+                if (board.whiteLost())
+                {
+                    Console.WriteLine("Black player won!");
+                    return;
+                }
+            }
         }
 
         static void Main(string[] args)
