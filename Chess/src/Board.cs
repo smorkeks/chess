@@ -32,7 +32,7 @@ namespace Chess.src
                                              { 0, 0, 0, 0, 0, 0, 0, 0 } };
 
         // Passed to Pieces to limit access to board.
-        public static delegate Square QueryFunc(uint x, uint y);
+        public delegate Square QueryFunc(uint x, uint y);
 
         // --- Constructor ---
         public Board()
@@ -99,6 +99,11 @@ namespace Chess.src
             }
         }
 
+        public void Main()
+        {
+            System.Console.WriteLine("Hello World, how about a game of chess?");
+            //new Board();
+        }
 
         // --- Methods ---
 

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Chess.src
 {
-    public class Agent
+    public abstract class Agent
     {
         // Fields
         protected string colour;
