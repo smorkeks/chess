@@ -11,7 +11,12 @@ namespace Chess
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            HelloWorldLabel.Text = "Hello, world! How about a game of chess?";
+        }
 
+        protected void GreetButton_Click(object sender, EventArgs e)
+        {
+            TextInput.Text = TextInput.Text + ", Click";
         }
     }
 }
