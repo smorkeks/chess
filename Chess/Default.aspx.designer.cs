@@ -40,6 +40,33 @@ namespace Chess {
         protected global::System.Web.UI.WebControls.TextBox TerminalOutput;
         
         /// <summary>
+        /// PlayerWhiteAgentList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList PlayerWhiteAgentList;
+        
+        /// <summary>
+        /// PlayerBlackAgentList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList PlayerBlackAgentList;
+        
+        /// <summary>
+        /// StartButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button StartButton;
+        
+        /// <summary>
         /// TerminalInput control.
         /// </summary>
         /// <remarks>
@@ -56,14 +83,5 @@ namespace Chess {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button GreetButton;
-        
-        /// <summary>
-        /// StartButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button StartButton;
     }
 }
