@@ -9,15 +9,20 @@ namespace Chess.src
     {
         // Fields
         protected string colour;
+        protected bool myTurn;
 
         // Methods
         public Agent(string col)
         {
             colour = col;
+            if (col == "white")
+                myTurn = true;
+            else
+                myTurn = false;
         }
 
         //Promts the agent to make a move
-        public abstract Tuple<uint, uint, uint, uint> getInput(Board B);
+        public abstract Tuple<uint, uint, uint, uint> getInput(Board B, string inp);
 
         public string getColour()
         {

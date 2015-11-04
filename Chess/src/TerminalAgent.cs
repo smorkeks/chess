@@ -7,15 +7,11 @@ namespace Chess.src
 {
     public class TerminalAgent : Agent
     {
-        private string p;
-
         //Methods
         public TerminalAgent(string col) : base(col) {}
 
-        public override Tuple<uint, uint, uint, uint> getInput(Board B)
+        public override Tuple<uint, uint, uint, uint> getInput(Board B, string inp)
         {
-            Console.WriteLine(getColour() + " players turn. Please input the four values xfrom, yfrom, xto and yto as 4 numbers between 0 and 7 with no spaces, for example 0103:");
-            string inp = Console.ReadLine();
             uint xFrom = (uint)inp[0];
             uint yFrom = (uint)inp[1];
             uint xTo = (uint)inp[2];

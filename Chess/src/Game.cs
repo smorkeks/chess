@@ -13,6 +13,8 @@ namespace Chess.src
         Board board;
         Agent white;
         Agent black;
+        private bool turnWhite;
+        private string newInput;
 
         // Terminal deligates
         public delegate void putString(string s);
@@ -30,19 +32,20 @@ namespace Chess.src
 
         public void start(string p1, string p2)
         {
+            turnWhite = true;
             board = new Board();
-         
-            
+
+
             if (p1 == "TA")
             {
-                    white = new TerminalAgent("white");
-                }
+                white = new TerminalAgent("white");
+            }
             put(p1);
-                
+
 
             if (p2 == "TA")
-                {
-                    black = new TerminalAgent("black");
+            {
+                black = new TerminalAgent("black");
             }
             put(p2);
             printBoard();
@@ -52,15 +55,15 @@ namespace Chess.src
 
         void printBoard()
         {
-            
+
             Piece P;
             for (int i = 7; i >= 0; i--)
             {
                 string tmp = "";
                 for (uint j = 0; j < 8; j++)
                 {
-                    
-                    P = board.getPieceAt(j,(uint) i);
+
+                    P = board.getPieceAt(j, (uint)i);
                     if (P == null)
                         tmp = tmp + "0   ";
                     else
@@ -72,15 +75,15 @@ namespace Chess.src
 
                         if (P is Pawn)
                             tmp = tmp + "p  ";
-                        else if(P is Rook)
+                        else if (P is Rook)
                             tmp = tmp + "r  ";
-                        else if(P is Knight)
+                        else if (P is Knight)
                             tmp = tmp + "kn ";
-                        else if(P is Bishop)
+                        else if (P is Bishop)
                             tmp = tmp + "b  ";
-                        else if(P is Queen)
+                        else if (P is Queen)
                             tmp = tmp + "q  ";
-                        else if(P is King)
+                        else if (P is King)
                             tmp = tmp + "k  ";
                         else
                             tmp = tmp + "ERORR ERROR ERROR";
@@ -96,28 +99,40 @@ namespace Chess.src
             Tuple<uint, uint, uint, uint> tmp;
             while (true)
             {
-
-                Console.WriteLine("White players turn!");
-                tmp = white.getInput(board);
-                board.makeMove("white", tmp.Item1, tmp.Item2, tmp.Item3, tmp.Item4);
-                if (board.blackLost())
+                while (turnWhite)
                 {
-                    Console.WriteLine("White player won!");
-                    return;
+                    if (white is TerminalAgent) // TODO not AI instead
+                    {
+                        while (newInput == "") { }
+                        tmp = white.getInput(board, newInput);
+                        turnWhite = !board.makeMove("white", tmp.Item1, tmp.Item2, tmp.Item3, tmp.Item4);
+                        if (board.blackLost())
+                        {
+                            put("White player won!");
+                            return;
+                        }
+                        printBoard();
+                        newInput = "";
+                    }
                 }
-                printBoard();
 
-                Console.WriteLine("Black players turn!");
-                tmp = white.getInput(board);
-                board.makeMove("black", tmp.Item1, tmp.Item2, tmp.Item3, tmp.Item4);
-                if (board.whiteLost())
+                while (!turnWhite)
                 {
-                    Console.WriteLine("Black player won!");
-                    return;
+                    if (white is TerminalAgent) // TODO not AI instead
+                    {
+                        while (newInput == "") { }
+                        tmp = black.getInput(board, newInput);
+                        turnWhite = board.makeMove("black", tmp.Item1, tmp.Item2, tmp.Item3, tmp.Item4);
+                        if (board.whiteLost())
+                        {
+                            put("Black player won!");
+                            return;
+                        }
+                        printBoard();
+                        newInput = "";
+                    }
                 }
-                printBoard();
             }
         }
-
     }
 }
