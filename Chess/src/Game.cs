@@ -16,58 +16,51 @@ namespace Chess.src
 
         // Terminal deligates
         public delegate void putString(string s);
-        public delegate string readString();
+        //public delegate string readString();
+
+        putString put;
+        //readString read;
 
         //Methods
-        public Game(putString put, readString read)
+        public Game(putString put)//, readString read)
         {
-            put("2");
-            board = new Board();
-            bool doneWhite = false;
-            while (!doneWhite)
-            {
-                put("Enter type for white player (Only TA so far):");
-                string tmp = "TA";// read(); // Console.ReadLine();
-                if (tmp == "TA")
-                {
-                    white = new TerminalAgent("white");
-                    doneWhite = true;
-                }
-                else
-                {
-                    put("Please enter a correct value");
-                }
-            }
+            this.put = put;
+            //this.read = read;
+        }
 
-            bool doneBlack = false;
-            while (!doneBlack)
+        public void start(string p1, string p2)
+        {
+            board = new Board();
+         
+            
+            if (p1 == "TA")
             {
-                put("Enter type for black player (Only TA so far):");
-                string tmp = "TA";//read(); //Console.ReadLine();
-                if (tmp == "TA")
+                    white = new TerminalAgent("white");
+                }
+            put(p1);
+                
+
+            if (p2 == "TA")
                 {
                     black = new TerminalAgent("black");
-                    doneBlack = true;
-                }
-                else
-                {
-                    put("Please enter a correct value");
-                }
             }
-
+            put(p2);
+            printBoard();
             //run();
 
         }
 
         void printBoard()
         {
+            
             Piece P;
-            for (uint i = 7; i >= 0; i++)
+            for (int i = 7; i >= 0; i--)
             {
                 string tmp = "";
                 for (uint j = 0; j < 8; j++)
                 {
-                    P = board.getPieceAt(j, i);
+                    
+                    P = board.getPieceAt(j,(uint) i);
                     if (P == null)
                         tmp = tmp + "0   ";
                     else
@@ -93,8 +86,8 @@ namespace Chess.src
                             tmp = tmp + "ERORR ERROR ERROR";
 
                     }
-                    Console.WriteLine(tmp);
                 }
+                put(tmp);
             }
         }
 
