@@ -99,12 +99,6 @@ namespace Chess.src
             }
         }
 
-        static void Main(string[] args)
-        {
-            System.Console.WriteLine("Hello World, how about a game of chess?");
-            //new Board();
-        }
-
         // --- Methods ---
 
         // Get the square at x, y
