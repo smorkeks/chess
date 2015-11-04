@@ -26,6 +26,7 @@ namespace Chess
 
         protected void StartButton_Click(object sender, EventArgs e)
         {
+            putString("Kom igen nu Britt-Marie, kör för fa-an!");
             game = new src.Game(putString, readString);
 
         }
@@ -37,7 +38,11 @@ namespace Chess
 
         private string readString()
         {
-            while(unreadInput == ""){}
+            putString("1");
+            while(unreadInput == "")
+            {
+                putString("#yolo");
+            }
             string tmp = unreadInput;
             unreadInput = "";
             return tmp;

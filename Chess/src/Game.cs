@@ -21,12 +21,13 @@ namespace Chess.src
         //Methods
         public Game(putString put, readString read)
         {
+            put("2");
             board = new Board();
             bool doneWhite = false;
             while (!doneWhite)
             {
                 put("Enter type for white player (Only TA so far):");
-                string tmp = "TB";//read(); // Console.ReadLine();
+                string tmp = "TA";// read(); // Console.ReadLine();
                 if (tmp == "TA")
                 {
                     white = new TerminalAgent("white");
