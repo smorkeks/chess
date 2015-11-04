@@ -134,5 +134,10 @@ namespace Chess.src
                 }
             }
         }
+
+        public void setNewPlayerInput(string input)
+        {
+            newInput = input;
+        }
     }
 }

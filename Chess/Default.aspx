@@ -30,7 +30,7 @@
 
         <br />
         <asp:TextBox runat="server" id="TerminalInput" Height="23px" Width="479px" style="margin-top: 15px" /> 
-        <asp:Button runat="server" id="GreetButton" text="Enter command" OnClick="TerminalButton_Click" Width="140px" style="margin-left: 9px" />
+        <asp:Button runat="server" id="TerminalButton" text="Enter command" OnClick="TerminalButton_Click" Width="140px" style="margin-left: 9px" />
         <br />
         <br />
     </div>
