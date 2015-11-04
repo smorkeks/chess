@@ -8,6 +8,8 @@ namespace Chess.src
     public class TerminalAgent : Agent
     {
         //Methods
+        TerminalAgent(string col) : base(col) {}
+
         public override Tuple<uint, uint, uint, uint> getInput(Board B)
         {
             Console.WriteLine(getColour() + " players turn. Please input the four values xfrom, yfrom, xto and yto as 4 numbers between 0 and 7 with no spaces, for example 0103:");

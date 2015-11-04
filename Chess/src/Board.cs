@@ -99,7 +99,7 @@ namespace Chess.src
             }
         }
 
-        public void Main()
+        static void Main(string[] args)
         {
             System.Console.WriteLine("Hello World, how about a game of chess?");
             //new Board();

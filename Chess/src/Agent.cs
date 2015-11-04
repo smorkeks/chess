@@ -11,7 +11,7 @@ namespace Chess.src
         protected string colour;
 
         // Methods
-        Agent(string col)
+        public Agent(string col)
         {
             colour = col;
         }
