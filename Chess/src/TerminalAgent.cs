@@ -7,8 +7,10 @@ namespace Chess.src
 {
     public class TerminalAgent : Agent
     {
+        private string p;
+
         //Methods
-        TerminalAgent(string col) : base(col) {}
+        public TerminalAgent(string col) : base(col) {}
 
         public override Tuple<uint, uint, uint, uint> getInput(Board B)
         {

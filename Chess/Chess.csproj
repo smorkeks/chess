@@ -71,6 +71,7 @@
     <Compile Include="src\Agent.cs" />
     <Compile Include="src\Board.cs" />
     <Compile Include="src\Bishop.cs" />
+    <Compile Include="src\Game.cs" />
     <Compile Include="src\King.cs" />
     <Compile Include="src\Knight.cs" />
     <Compile Include="src\Pawn.cs" />
