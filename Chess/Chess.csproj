@@ -79,6 +79,7 @@
     <Compile Include="src\Queen.cs" />
     <Compile Include="src\Rook.cs" />
     <Compile Include="src\Square.cs" />
+    <Compile Include="src\TerminalAgent.cs" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
