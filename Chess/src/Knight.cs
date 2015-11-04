@@ -32,7 +32,7 @@ namespace Chess.src
                 {
                     Square S = QF((uint)(getX() + x), (uint)(getY() + y));
                     Piece P = S.getPiece();
-                    if (P == null)
+                    if (P != null)
                     {
                         if (!isSameColour(P))
                             tmpList.Add(new Tuple<uint, uint>((uint)(getX() + x), (uint)(getY() + y)));

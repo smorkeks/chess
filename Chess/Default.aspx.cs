@@ -9,14 +9,19 @@ namespace Chess
 {
     public partial class Default : System.Web.UI.Page
     {
+        src.Game game;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             HelloWorldLabel.Text = "Hello, world! How about a game of chess?";
+            game = new src.Game();
         }
 
-        protected void GreetButton_Click(object sender, EventArgs e)
+        protected void TerminalButton_Click(object sender, EventArgs e)
         {
-            TextInput.Text = TextInput.Text + ", Click";
+            TerminalOutput.Text += TerminalInput.Text + "\n";
+            TerminalInput.Text = "";
+
         }
     }
 }
