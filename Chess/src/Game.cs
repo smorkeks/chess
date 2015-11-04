@@ -52,6 +52,45 @@ namespace Chess.src
 
         }
 
+        void printBoard()
+        {
+            Piece P;
+            for (uint i = 7; i >= 0; i++)
+            {
+                string tmp = "";
+                for (uint j = 0; j < 8; j++)
+                {
+                    P = board.getPieceAt(j, i);
+                    if (P == null)
+                        tmp = tmp + "0   ";
+                    else
+                    {
+                        if (P.getColour() == "white")
+                            tmp = tmp + "W";
+                        else
+                            tmp = tmp + "B";
+
+                        if (P is Pawn)
+                            tmp = tmp + "p  ";
+                        else if(P is Rook)
+                            tmp = tmp + "r  ";
+                        else if(P is Knight)
+                            tmp = tmp + "kn ";
+                        else if(P is Bishop)
+                            tmp = tmp + "b  ";
+                        else if(P is Queen)
+                            tmp = tmp + "q  ";
+                        else if(P is King)
+                            tmp = tmp + "k  ";
+                        else
+                            tmp = tmp + "ERORR ERROR ERROR";
+
+                    }
+                    Console.WriteLine(tmp);
+                }
+            }
+        }
+
         void run()
         {
             Tuple<uint, uint, uint, uint> tmp;
@@ -66,6 +105,7 @@ namespace Chess.src
                     Console.WriteLine("White player won!");
                     return;
                 }
+                printBoard();
 
                 Console.WriteLine("Black players turn!");
                 tmp = white.getInput(board);
@@ -75,12 +115,9 @@ namespace Chess.src
                     Console.WriteLine("Black player won!");
                     return;
                 }
+                printBoard();
             }
         }
 
-        static void Main(string[] args)
-        {
-            new Game();
-        }
     }
 }
