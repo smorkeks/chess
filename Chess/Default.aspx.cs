@@ -14,7 +14,6 @@ namespace Chess
         protected void Page_Load(object sender, EventArgs e)
         {
             HelloWorldLabel.Text = "How about a game of chess?";
-            game = new src.Game(putString);//, readString);
         }
 
         protected void TerminalButton_Click(object sender, EventArgs e)
@@ -22,12 +21,12 @@ namespace Chess
             TerminalOutput.Text += TerminalInput.Text + "\n";
             string tmp = TerminalInput.Text;
             TerminalInput.Text = "";
-
             game.setNewPlayerInput(tmp);
         }
 
         protected void StartButton_Click(object sender, EventArgs e)
         {
+            game = new src.Game(putString);
             PlayerWhiteAgentList.Enabled = false;
             PlayerBlackAgentList.Enabled = false;
             StartButton.Enabled = false;

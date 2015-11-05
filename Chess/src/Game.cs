@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Threading;
 
 namespace Chess.src
 {
@@ -34,6 +35,7 @@ namespace Chess.src
         {
             turnWhite = true;
             board = new Board();
+            newInput = "";
 
 
             if (p1 == "TA")
@@ -49,8 +51,8 @@ namespace Chess.src
             }
             put(p2);
             printBoard();
-            //run();
 
+            run();
         }
 
         void printBoard()
@@ -103,6 +105,7 @@ namespace Chess.src
                 {
                     if (white is TerminalAgent) // TODO not AI instead
                     {
+
                         while (newInput == "") { }
                         tmp = white.getInput(board, newInput);
                         turnWhite = !board.makeMove("white", tmp.Item1, tmp.Item2, tmp.Item3, tmp.Item4);
@@ -118,7 +121,7 @@ namespace Chess.src
 
                 while (!turnWhite)
                 {
-                    if (white is TerminalAgent) // TODO not AI instead
+                    if (black is TerminalAgent) // TODO not AI instead
                     {
                         while (newInput == "") { }
                         tmp = black.getInput(board, newInput);
@@ -138,6 +141,7 @@ namespace Chess.src
         public void setNewPlayerInput(string input)
         {
             newInput = input;
+            put("Updating input: " + newInput);
         }
     }
 }
